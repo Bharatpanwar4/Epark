@@ -9,6 +9,7 @@ module.exports = {
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
+  myProp: PropTypes.string.isRequired,
   settings: { react: { version: '18.2' } },
   plugins: ['react-refresh'],
   rules: {
