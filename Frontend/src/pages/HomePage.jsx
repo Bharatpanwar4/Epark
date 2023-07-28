@@ -14,6 +14,7 @@ const fetchProducts  = async()=>{
 }
 fetchProducts()
   },[])
+  
 
 
   return (
