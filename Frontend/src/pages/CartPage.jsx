@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../slices/cartSlice";
+import { addToCart ,removeFromCart } from "../slices/cartSlice";
 import {
   Row,
   Col,
@@ -18,9 +18,21 @@ const CartPage = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+
+
+// add to cart function
   const addToCartHandler = async(product,qty)=>{
 dispatch(addToCart({...product,qty}))
   }
+
+  // delete by clicking button
+  const removeFromCartHandler = async(id)=>{
+    dispatch(removeFromCart(id))
+      }
+// proceed to checkout function
+      const checkoutHandler = ()=>{
+        navigate('/login?redirect=/shipping')
+      }
   return (
     <Row>
       <Col md={8}>
@@ -56,7 +68,7 @@ dispatch(addToCart({...product,qty}))
                   </Col>
 
                   <Col md={2}>
-                    <Button type="button" variant="light">
+                    <Button type="button" variant="light" onClick={()=>removeFromCartHandler(item._id)}>
                       <FaTrash />
                     </Button>
                   </Col>
@@ -84,6 +96,7 @@ dispatch(addToCart({...product,qty}))
                 type="button"
                 className="btn-dark btn-block w-100"
                 disabled={cartItems.length === 0}
+                onClick={checkoutHandler}
               >
                 Proceed To Checkout
               </Button>
