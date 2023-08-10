@@ -30,9 +30,9 @@ dispatch(addToCart({...product,qty}))
     dispatch(removeFromCart(id))
       }
 // proceed to checkout function
-      const checkoutHandler = ()=>{
-        navigate('/login?redirect=/shipping')
-      }
+const checkoutHandler = () => {
+  navigate('/login?redirect=/shipping');
+};
   return (
     <Row>
       <Col md={8}>
