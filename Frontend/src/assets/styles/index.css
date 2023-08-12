@@ -51,6 +51,9 @@ main {
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
   }
-  a{
+  a {
+    text-decoration: none;
+  }
+  .lin{
     text-decoration: none;
   }
