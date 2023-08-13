@@ -66,8 +66,8 @@ const logoutHandler = async()=>{
 </LinkContainer>)}
               
          {userInfo && userInfo.isAdmin && (
-          <NavDropdown title='Admin' id="adminmenu">
-<LinkContainer to='/admin/productlist'>
+          <NavDropdown title='Admin' id="adminmenu"  variant='dark'>
+<LinkContainer to='/admin/productlist' >
 <NavDropdown.Item>Products</NavDropdown.Item>
 </LinkContainer>
 <LinkContainer to='/admin/userlist'>

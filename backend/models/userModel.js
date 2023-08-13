@@ -15,6 +15,8 @@ const userSchema = new mongoose.Schema({
     password:{
         type:String,
         required:true,
+        min: [5, 'Password too short!'],
+    max: 12
     },
     isAdmin:{
         type:Boolean,
