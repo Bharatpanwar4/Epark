@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import {
   useGetProductDetailsQuery,
   useUpdateProductMutation,
-//   useUploadProductImageMutation,
+  useUploadProductImageMutation,
 } from '../../slices/productsApiSlice';
 
 const ProductEditPage = () => {
@@ -32,8 +32,8 @@ const ProductEditPage = () => {
   const [updateProduct, { isLoading: loadingUpdate }] =
     useUpdateProductMutation();
 
-//   const [uploadProductImage, { isLoading: loadingUpload }] =
-//     useUploadProductImageMutation();
+  const [uploadProductImage, { isLoading: loadingUpload }] =
+    useUploadProductImageMutation();
 
   const navigate = useNavigate();
 
@@ -62,7 +62,7 @@ const ProductEditPage = () => {
     if (product) {
       setName(product.name);
       setPrice(product.price);
-    //   setImage(product.image);
+      setImage(product.image);
       setBrand(product.brand);
       setCategory(product.category);
       setCountInStock(product.countInStock);
@@ -70,17 +70,17 @@ const ProductEditPage = () => {
     }
   }, [product]);
 
-//   const uploadFileHandler = async (e) => {
-//     const formData = new FormData();
-//     formData.append('image', e.target.files[0]);
-//     try {
-//       const res = await uploadProductImage(formData).unwrap();
-//       toast.success(res.message);
-//       setImage(res.image);
-//     } catch (err) {
-//       toast.error(err?.data?.message || err.error);
-//     }
-//   };
+  const uploadFileHandler = async (e) => {
+    const formData = new FormData();
+    formData.append('image', e.target.files[0]);
+    try {
+      const res = await uploadProductImage(formData).unwrap();
+      toast.success(res.message);
+      setImage(res.image);
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
+    }
+  };
 
   return (
     <>
@@ -117,7 +117,7 @@ const ProductEditPage = () => {
             </Form.Group>
 
             <Form.Group controlId='image'>
-              {/* <Form.Label>Image</Form.Label>
+              <Form.Label>Image</Form.Label>
               <Form.Control
                 type='text'
                 placeholder='Enter image url'
@@ -128,8 +128,8 @@ const ProductEditPage = () => {
                 label='Choose File'
                 onChange={uploadFileHandler}
                 type='file'
-              ></Form.Control> */}
-              {/* {loadingUpload && <Loader />} */}
+              ></Form.Control>
+              {loadingUpload && <Loader />}
             </Form.Group>
 
             <Form.Group controlId='brand'>
