@@ -12,7 +12,7 @@ import '../src/assets/styles/index.css'
 // import './assets/styles/bootstrap.custom.css'
 import App from './App.jsx'
 import HomePage from './pages/HomePage.jsx';
-import ProductPage from './pages/ProductPage';
+import ProductPage from './pages/ProductPage.jsx';
 import CartPage from './pages/CartPage.jsx';
 import LoginPage from './pages/LoginPage.jsx'
 import RegisterPage from './pages/RegisterPage.jsx';
