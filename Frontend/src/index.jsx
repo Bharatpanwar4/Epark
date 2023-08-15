@@ -2,6 +2,7 @@ import React from 'react'
 
 import ReactDOM from 'react-dom/client'
 import {PayPalScriptProvider } from '@paypal/react-paypal-js'
+// import {helmetProvider} from 'react-helmet-async'
 import { Provider } from 'react-redux';
 import store from './store.js'
 import {createBrowserRouter ,createRoutesFromElements,Route,RouterProvider} from 'react-router-dom'
@@ -27,6 +28,7 @@ import ProductListPage from './pages/Admin/ProductListPage.jsx';
 import ProductEditPage from './pages/Admin/ProductEditPage.jsx';
 import UserListPage from './pages/Admin/UserListPage.jsx';
 import UserEditPage from './pages/Admin/UserEditPage.jsx';
+import ErrorPage from './pages/Error/ErrorPage.jsx';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App/>}> 
@@ -41,7 +43,7 @@ const router = createBrowserRouter(
 <Route  path='/cart' element={<CartPage/>}/>
 <Route path='/login' element={<LoginPage/>}/>
 <Route path='/register' element={<RegisterPage/>}/>
-<Route path="*" element={<div>not found</div>}></Route>
+<Route path="*" element={<ErrorPage/>}></Route>
 
 
 {/* private */}
@@ -77,6 +79,7 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+  
   <Provider store={store}>
   <PayPalScriptProvider deferLoading={true}>
   <RouterProvider router={router}/>
