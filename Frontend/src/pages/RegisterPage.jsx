@@ -86,6 +86,7 @@ if(userInfo){
             type="password"
             placeholder="Enter password"
             value={password}
+            minLength={6}
             onChange={(e) => setPassword(e.target.value)}
           ></Form.Control>
         </Form.Group>

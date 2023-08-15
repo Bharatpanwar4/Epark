@@ -93,7 +93,7 @@ const UserEditPage = () => {
               ></Form.Check>
             </Form.Group>
 
-            <Button type='submit' variant='primary'>
+            <Button type='submit' variant='dark' className='w-100 my-1'>
               Update
             </Button>
           </Form>
