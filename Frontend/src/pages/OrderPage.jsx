@@ -13,7 +13,7 @@ import {
   usePayOrderMutation,
 } from '../slices/orderApiSlice';
 
-const OrderScreen = () => {
+const OrderPage = () => {
   const { id: orderId } = useParams();
 
   const {
@@ -273,4 +273,4 @@ const OrderScreen = () => {
   );
 };
 
-export default OrderScreen;
+export default OrderPage;
