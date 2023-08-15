@@ -2,7 +2,7 @@ import React from 'react'
 
 import ReactDOM from 'react-dom/client'
 import {PayPalScriptProvider } from '@paypal/react-paypal-js'
-// import {helmetProvider} from 'react-helmet-async'
+import {helmetProvider} from 'react-helmet-async'
 import { Provider } from 'react-redux';
 import store from './store.js'
 import {createBrowserRouter ,createRoutesFromElements,Route,RouterProvider} from 'react-router-dom'
@@ -79,12 +79,14 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-  
+  <helmetProvider>
   <Provider store={store}>
   <PayPalScriptProvider deferLoading={true}>
   <RouterProvider router={router}/>
 
   </PayPalScriptProvider>
     </Provider>
+  </helmetProvider>
+  
   </React.StrictMode>
 )
