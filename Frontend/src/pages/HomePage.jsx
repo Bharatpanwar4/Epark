@@ -1,16 +1,25 @@
 import { Row, Col } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useParams ,Link } from "react-router-dom";
 import Product from "../components/Product.jsx";
 import { useGetProductsQuery } from "../slices/productsApiSlice.jsx";
 import Loader from "../components/Loader.jsx";
 import Message from "../components/Message.jsx";
 import Paginate from "../components/Paginate.jsx";
+import ProductCarousel from "../components/ProductCarousel.jsx";
 const HomePage = () => {
   const {pageNumber,keyword} = useParams()
   const { data , isLoading ,error} = useGetProductsQuery({pageNumber,keyword})
 
   return (
     <>
+
+    {!keyword ? (
+        <ProductCarousel />
+      ) : (
+        <Link to='/' className='btn btn-dark mb-4'>
+          Go Back
+        </Link>
+      )}
     {isLoading ? (
      <Loader/>
     ) : error ? (<Message variant="danger">{error?.data?.message || error.error}</Message>) : (<><h1>Latest Products</h1>
